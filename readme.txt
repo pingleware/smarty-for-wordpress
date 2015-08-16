@@ -189,6 +189,9 @@ Please do not be afraid of asking questions?<br>
 = 3.1.21 =
 * Updated to smarty version 3.1.21
 
+= 3.1.27 =
+* Updated to smarty version 3.1.27
+
 == Upgrade Notice ==
 
 The next stable release of Smarty is available and this plugin upgraded appropriately.

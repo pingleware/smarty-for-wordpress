@@ -5,16 +5,9 @@
  * @package Example-application
  */
 
-/**
- * Updated for Smarty for Wordpress
- */
-if (function_exists("smarty_get_instance")) {
-	$smarty = smarty_get_instance(TRUE);
-} else {
-	require '../libs/Smarty.class.php';
-	$smarty = new Smarty;
-}
+require '../libs/Smarty.class.php';
 
+$smarty = new Smarty;
 
 //$smarty->force_compile = true;
 $smarty->debugging = true;
