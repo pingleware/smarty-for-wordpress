@@ -114,11 +114,10 @@ We make honorable mention to anyone who helps make Smarty for Wordpress a better
 
 == Contact ==
 
-Support for this plugin can be obtained from http://suport.phkcorp.com. Request membership to the Smarty for Wordpress
-forum.
 DO NOT ASK FOR SUPPORT FROM www.smarty.net!
+Support is provided at https://github.com/patrickingle/smarty-for-wordpress/issues. You will require a free account on github.com
 
-PHK Corporation at phkcorp2005@gmail.com or www.phkcorp.com?do=contact
+Please contact phkcorp2005@gmail.com or visit the above forum with questions, comments, or requests.
 
 == Frequently Asked Questions ==
 
@@ -193,13 +192,3 @@ Please do not be afraid of asking questions?<br>
 == Upgrade Notice ==
 
 The next stable release of Smarty is available and this plugin upgraded appropriately.
-
-== Credits ==
-
-We make honorable mention to anyone who helps make Smarty for Wordpress a better plugin!
-
-== Contact ==
-
-Support is provided at https://github.com/patrickingle/smarty-for-wordpress/issues. You will require a free account on github.com
-
-Please contact phkcorp2005@gmail.com or visit the above forum with questions, comments, or requests.
