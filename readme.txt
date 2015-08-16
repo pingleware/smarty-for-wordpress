@@ -1,6 +1,4 @@
-# Smarty for Wordpress 
-The official development branch for the wordpress plugin located at https://wordpress.org/plugins/smarty-for-wordpress
-
+=== Smarty for Wordpress ===
 Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: smarty wp-smarty
@@ -10,7 +8,7 @@ Stable tag: 3.9
 
 Smarty for Wordpress permits your Smarty template file to be embedded in a Wordpress post/page.
 
-# Description 
+== Description ==
 
 Do you have Smarty templates that you would like to use in your wordpress blog?
 
@@ -99,9 +97,9 @@ Testing Smarty for Wordpress can be accomplished by creating a post with the fol
 Testing the Smarty Demo included in the Smarty distribution can be accomplished by creating a page or post with the following shortcode.
 [smarty-demo]
 
-# Installation 
+== Installation ==
 
-To install this plugin, follow these steps:
+To instal this plugin, follow these steps:
 
 1. Download the plugin
 2. Extract the plugin to the `/wp-content/plugins/` directory
@@ -110,11 +108,11 @@ To install this plugin, follow these steps:
 5. You are now ready to use the plugin. See the Admin page from Settings|Smarty for Wordpress for
 tips and techniques on usage
 
-# Credits 
+== Credits ==
 
 We make honorable mention to anyone who helps make Smarty for Wordpress a better plugin!
 
-# Contact 
+== Contact ==
 
 Support for this plugin can be obtained from http://suport.phkcorp.com. Request membership to the Smarty for Wordpress
 forum.
@@ -122,7 +120,7 @@ DO NOT ASK FOR SUPPORT FROM www.smarty.net!
 
 PHK Corporation at phkcorp2005@gmail.com or www.phkcorp.com?do=contact
 
-# Frequently Asked Questions 
+== Frequently Asked Questions ==
 
 Please do not be afraid of asking questions?<br>
 
@@ -146,7 +144,7 @@ Please do not be afraid of asking questions?<br>
 = How do I access the WPDB object from the Smarty Loader =
 * use the syntax global $wpdb; within the smarty loader file.
 
-# Changelog 
+== Changelog ==
 
 = 2.6.26 =
 * Modified from Smarty version 2.6.26 to work as a Wordpress plugin
@@ -192,15 +190,15 @@ Please do not be afraid of asking questions?<br>
 = 3.1.21 =
 * Updated to smarty version 3.1.21
 
-# Upgrade Notice 
+== Upgrade Notice ==
 
 The next stable release of Smarty is available and this plugin upgraded appropriately.
 
-# Credits 
+== Credits ==
 
 We make honorable mention to anyone who helps make Smarty for Wordpress a better plugin!
 
-# Contact 
+== Contact ==
 
 Support is provided at https://github.com/patrickingle/smarty-for-wordpress/issues. You will require a free account on github.com
 
