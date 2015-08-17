@@ -3,8 +3,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: smarty wp-smarty
 Requires at least: 2.8.6
-Tested up to: 3.9
-Stable tag: 3.9
+Tested up to: 4.3
+Stable tag: 3.1.27
 
 Smarty for Wordpress permits your Smarty template file to be embedded in a Wordpress post/page.
 
@@ -145,52 +145,51 @@ Please do not be afraid of asking questions?<br>
 
 == Changelog ==
 
-= 2.6.26 =
-* Modified from Smarty version 2.6.26 to work as a Wordpress plugin
+= 3.1.27 =
+* Updated to smarty version 3.1.27
 
-= 2.6.26.1 =
-* Added the smarty-display shortcode in addition to smarty-load 
+= 3.1.21 =
+* Updated to smarty version 3.1.21
 
+= 3.1.18 =
+* Updated to smarty version 3.1.18
 
-= 3.0.5 =
-* Upgrade to smarty version 3.0.5
+= 3.1.13.4 =
+* Change child themes support to off by default, use the constant SMARTY_CHILDTHEMES = true, to turn on child themes support
+
+= 3.1.13.3 =
+* Fix when WP_USE_THEMES is off, wp-login and wp-register will not load the smarty loader
+* Enable child themes support, where the smarty files reside in the smarty directory structure under the theme selected including any child theme
+
+= 3.1.13.2 =
+* Fix plugins array definition in smarty directory initialization routine as reported by a user.
+
+= 3.1.13.1 =
+* Fix when WP_USE_THEMES is off, wp-admin will not load the smarty loader but permit access to Wordpress admin dashboard.
+
+= 3.1.13 =
+* Upgrade to smarty version 3.1.13
+* When WP_USE_THEMES is false, will load a user define Smarty loader, and now your Smarty templates have access to the Wordpress codex
+
+= 3.0.7.2 =
+* Fix an issue when specifying multiple smarty plugin directories
+
+= 3.0.7.1 =
+* Fix deprecated issue, function call 'assign_by_ref' is unknown or deprecated
 
 = 3.0.7 =
 * Upgrade to smarty version 3.0.7
 * Added support for smarty plugins and trusted user directories
 * Added support to pass multiple variables to the template
 
-= 3.0.7.1 =
-* Fix deprecated issue, function call 'assign_by_ref' is unknown or deprecated
+= 3.0.5 =
+* Upgrade to smarty version 3.0.5
 
-= 3.0.7.2 =
-* Fix an issue when specifying multiple smarty plugin directories
+= 2.6.26.1 =
+* Added the smarty-display shortcode in addition to smarty-load 
 
-= 3.1.13 =
-* Upgrade to smarty version 3.1.13
-* When WP_USE_THEMES is false, will load a user define Smarty loader, and now your Smarty templates have access to the Wordpress codex
-
-= 3.1.13.1 =
-* Fix when WP_USE_THEMES is off, wp-admin will not load the smarty loader but permit access to Wordpress admin dashboard.
-
-= 3.1.13.2 =
-* Fix plugins array definition in smarty directory initialization routine as reported by a user.
-
-= 3.1.13.3 =
-* Fix when WP_USE_THEMES is off, wp-login and wp-register will not load the smarty loader
-* Enable child themes support, where the smarty files reside in the smarty directory structure under the theme selected including any child theme
-
-= 3.1.13.4 =
-* Change child themes support to off by default, use the constant SMARTY_CHILDTHEMES = true, to turn on child themes support
-
-= 3.1.18 =
-* Updated to smarty version 3.1.18
-
-= 3.1.21 =
-* Updated to smarty version 3.1.21
-
-= 3.1.27 =
-* Updated to smarty version 3.1.27
+= 2.6.26 =
+* Modified from Smarty version 2.6.26 to work as a Wordpress plugin
 
 == Upgrade Notice ==
 
