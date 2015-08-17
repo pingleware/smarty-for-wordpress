@@ -4,7 +4,7 @@ Plugin Name: Smarty for Wordpress
 Plugin URI: http://www.phkcorp.com?do=wordpress
 Description: Adds the Smarty Template Engine to Wordpress for ease of migration of themes
 Author: PHK Corporation for enablement
-Version: 3.1.27
+Version: 3.1.27.1
 Author URI: http://www.phkcorp.com/
 */
 
@@ -383,7 +383,7 @@ function displaySmartyManagementPage()
 
 				<fieldset class='options'>
 					<legend><h2><u>About the Architecture</u></h2></legend>
-<p>This plugin is based on Smarty 3.1.21 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
+<p>This plugin is based on Smarty 3.1.27 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
 <p>This plugin provides a needed and often requested requirement to assist the migration of Smarty templates to Wordpress-compliant
 themes. While the full migration is always preferred, this plugin gives you a fast track to your Smarty migration, as well
 as to embed those flagship Smarty templates/plugins within your new Wordpress pages</p>
@@ -395,8 +395,7 @@ Wordpress as shortcodes.</p>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
 <p><a href="http://www.phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
 of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant <b>seamless</b> themes.</p>
-<p>You may see our samples at <a href="http://www.phkcorp.com?do=wordpress" target="_blank">www.phkcorp.com?do=wordpress</a></p>
-<p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a> or <a href="http://www.phkcorp.com?do=contact" target="_blank">www.phkcorp.com?do=contact</a> with your programming requirements.</p>
+<p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a></p>
 				</fieldset>
 		</div>
 <?php

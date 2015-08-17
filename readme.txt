@@ -144,6 +144,8 @@ Please do not be afraid of asking questions?<br>
 * use the syntax global $wpdb; within the smarty loader file.
 
 == Changelog ==
+= 3.1.27.1 =
+* Updated Admin page
 
 = 3.1.27 =
 * Updated to smarty version 3.1.27
