@@ -4,15 +4,33 @@ Plugin Name: Smarty for Wordpress
 Plugin URI: http://www.phkcorp.com?do=wordpress
 Description: Adds the Smarty Template Engine to Wordpress for ease of migration of themes
 Author: PHK Corporation for enablement
-Version: 3.1.27.1
+Version: 3.1.30
 Author URI: http://www.phkcorp.com/
 */
 
 require(dirname(__FILE__)."/libs/Smarty.class.php");
 
+function smarty_create_tempdir($smarty) {
+    if (file_exists($smarty->template_dir) === false) {
+        mkdir($smarty->template_dir);
+    }
+    if (file_exists($smarty->compile_dir) === false) {
+        mkdir($smarty->compile_dir);
+    }
+    if (file_exists($smarty->config_dir) === false) {
+        mkdir($smarty->config_dir);
+    }
+    if (file_exists($smarty->cache_dir) === false) {
+        mkdir($smarty->cache_dir);
+        chmod($smarty->cache_dir, 0777 );
+    }
+}
+
 function smarty_get_instance($demo=FALSE)
 {
-	$smarty = new Smarty();
+        $smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
+        
+	$smarty = ($smartybc === true ? new SmartyBC() : new Smarty());
 
 	$theme_path = smarty_get_themes_path();
 
@@ -40,7 +58,10 @@ function smarty_get_instance($demo=FALSE)
 			//$smarty->trusted_dir  = SMARTY_PATH . "/trusted";
 	    }
 	}
+        
+        smarty_create_tempdir($smarty);
 
+        $smarty->smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
 	$smarty->auto_literal = (get_option('s4w_auto_literal','0') == '1' ?  true : false );
 	$smarty->cache_lifetime = get_option('s4w_cache_lifetime');
 	$smarty->cache_modified_check = (get_option('s4w_cache_modified_check','0') == '1' ? true : false );
@@ -67,7 +88,9 @@ function smarty_load_template($atts, $content=null, $code="")
 	$name  = "{$name}";
 	$value = "{$value}";
 
-	$smarty = new Smarty();
+	//$smarty = new Smarty();
+        $smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
+	$smarty = ($smartybc === true ? new SmartyBC() : new Smarty());
 	$smarty->assign_by_ref($name,$value);
 
 	$theme_path = smarty_get_themes_path();
@@ -90,6 +113,9 @@ function smarty_load_template($atts, $content=null, $code="")
 	    }
 	}
 
+        smarty_create_tempdir($smarty);
+        
+        $smarty->smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
 	$smarty->auto_literal = (get_option('s4w_auto_literal','0') == '1' ?  true : false );
 	$smarty->cache_lifetime = get_option('s4w_cache_lifetime');
 	$smarty->cache_modified_check = (get_option('s4w_cache_modified_check','0') == '1' ? true : false );
@@ -114,7 +140,9 @@ function smarty_assign_by_reference($atts, $content=null, $code="")
 	$name  = "{$name}";
 	$value = "{$value}";
 
-	$smarty = new Smarty();
+	//$smarty = new Smarty();
+        $smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
+	$smarty = ($smartybc === true ? new SmartyBC() : new Smarty());
 
 	$theme_path = smarty_get_themes_path();
 
@@ -135,7 +163,10 @@ function smarty_assign_by_reference($atts, $content=null, $code="")
 			//$smarty->trusted_dir  = SMARTY_PATH . "/trusted";
 	    }
 	}
+        
+        smarty_create_tempdir($smarty);
 
+        $smarty->smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
 	$smarty->auto_literal = (get_option('s4w_auto_literal','0') == '1' ?  true : false );
 	$smarty->cache_lifetime = get_option('s4w_cache_lifetime');
 	$smarty->cache_modified_check = (get_option('s4w_cache_modified_check','0') == '1' ? true : false );
@@ -168,7 +199,9 @@ function smarty_array_assign_by_reference($atts, $content=null, $code="")
 	$t1 = explode(",",$name);
 	$t2 = explode(",",$value);
 
-	$smarty = new Smarty();
+	//$smarty = new Smarty();
+        $smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
+	$smarty = ($smartybc === true ? new SmartyBC() : new Smarty());
 
 	$theme_path = smarty_get_themes_path();
 
@@ -199,7 +232,10 @@ function smarty_array_assign_by_reference($atts, $content=null, $code="")
 			//$smarty->trusted_dir  = SMARTY_PATH . "/trusted";
 	    }
 	}
+        
+        smarty_create_tempdir($smarty);
 
+        $smarty->smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
 	$smarty->auto_literal = (get_option('s4w_auto_literal','0') == '1' ?  true : false );
 	$smarty->cache_lifetime = get_option('s4w_cache_lifetime');
 	$smarty->cache_modified_check = (get_option('s4w_cache_modified_check','0') == '1' ? true : false );
@@ -216,7 +252,9 @@ function smarty_array_assign_by_reference($atts, $content=null, $code="")
 
 function smarty_test_install($atts, $content=null, $code="")
 {
-	$smarty = new Smarty();
+	//$smarty = new Smarty();
+        $smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
+	$smarty = ($smartybc === true ? new SmartyBC() : new Smarty());
 
 	$theme_path = smarty_get_themes_path();
 
@@ -238,6 +276,9 @@ function smarty_test_install($atts, $content=null, $code="")
 	    }
 	}
 
+        smarty_create_tempdir($smarty);
+
+        $smarty->smartybc = (get_option('s4w_smartybc','0') == '1' ?  true : false );
 	$smarty->auto_literal = (get_option('s4w_auto_literal','0') == '1' ?  true : false );
 	$smarty->cache_lifetime = get_option('s4w_cache_lifetime');
 	$smarty->cache_modified_check = (get_option('s4w_cache_modified_check','0') == '1' ? true : false );
@@ -268,6 +309,7 @@ function displaySmartyManagementPage()
 {
 	if (isset($_POST['save']))
 	{
+                update_option('s4w_smartybc',(isset($_POST['smarty_bc']) ? '1' : '0'));
 		update_option('s4w_auto_literal',(isset($_POST['auto_literal']) ? '1' : '0'));
 		update_option('s4w_cache_lifetime',$_POST['cache_lifetime']);
 		update_option('s4w_cache_modified_check',(isset($_POST['cache_modified_check']) ? '1' : '0'));
@@ -280,6 +322,7 @@ function displaySmartyManagementPage()
 		update_option('s4w_use_sub_dirs',(isset($_POST['use_sub_dirs']) ? '1' : '0'));
 	}
 
+        $s4w_smartybc_checked = (get_option('s4w_smartybc','0') == '1' ? 'checked' : '');
 	$s4w_auto_literal_checked = (get_option('s4w_auto_literal','0') == '1' ? 'checked' : '');
 	$s4w_cache_lifetime = get_option('s4w_cache_lifetime');
 	$s4w_cache_modified_checked = (get_option('s4w_cache_modified_check','0') == '1' ? 'checked' : '');
@@ -315,6 +358,9 @@ function displaySmartyManagementPage()
 				<fieldset class='options'>
 					<legend><h2><u>Settings</u></h2></legend>
 					<table>
+						<tr>
+							<td>Enable SmartyBC</td><td><input type='checkbox' name='smarty_bc' <?php echo $s4w_smartybc_checked; ?> ></td>
+						</tr>
 						<tr>
 							<td>Auto literal</td><td><input type='checkbox' name='auto_literal' <?php echo $s4w_auto_literal_checked; ?> ></td>
 						</tr>
@@ -358,38 +404,50 @@ function displaySmartyManagementPage()
 				</form>
 				<fieldset class='options'>
 					<legend><h2><u>Tips &amp; Techniques</u></h2></legend>
-								<h3>Publication available on Amazon.com</h3>
-								<p><a href="http://www.amazon.com/dp/B00K5XTPL2" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41qOnv4Ik5L._BO2,204,203,200_PIsitb-sticker-v3-big,TopRight,0,-55_SX278_SY278_PIkin4,BottomRight,1,22_AA300_SH20_OU01_.jpg"></a></p>
-								<p>Preparing your theme to accept Smarty templates:</p>
-								<ul>
-								<li>1. Create the four smarty directories (templates,templates_c,config,cache,plugins,trusted) under your theme path</li>
-								<li>2. Place your Smarty theme files in the templates path</li>
-								<li>3. Ensure that the templates_c path is writable</li>
-								<li>4. Create a Wordpress page and enter the following short code: [smarty-display tpl=home.tpl], where home.tpl is your smarty
-								template located in the templates path</li>
-								<li>5. If you want to pass a single variable with the template, use [smarty-display tpl=home.tpl name=myVariable value="some value"]</li>
-								<li>6. If you want to pass multiple variables to the template, use [smarty-array tpl=home.tpl name="my1,my2,my3" value="1,2,'text']</li>
-								<li>7. View the page and watch the magic happen!<li>
-								<li><strong>That's It!</strong></li>
-								</ul>
-								<p>The <i>home.tpl</i> contains: <code>Hello from Smarty! passing variable myVariable={$myVariable}</code></p>
-								<p>If you wish to use Smarty in your custom worpress php files, then simply invoke the <b>smarty_get_instance()</b> function
-								and an instance of the Smarty class will be returned with the directories preset to your current theme.</p>
-								<p>For example,<br><code>$mySmarty = smarty_get_instance();<br> $mySmarty->assign('name','value');<br>...</code></p>
-								<p>Providing multiple parameters to your Smarty templates,<br><code>[smarty-array tpl="test.tpl" name="my1,my2,my3" value="1,2,'test'"]</code><br>
-								<i>Where my1,my2,my3 are the names of your Smarty template variables while value contains the values of these variables to pass to the template, test.tpl.
-								(my1=1, my2=2, and my3='test')</i></p>
+                                        <table>
+                                            <th>Publication available on Amazon.com - $9.99</th>
+                                            <th>Publication available on Barnes & Noble - $5.00</th>
+                                            <tr>
+                                                <td><a href="http://www.amazon.com/dp/B00K5XTPL2" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41qOnv4Ik5L._BO2,204,203,200_PIsitb-sticker-v3-big,TopRight,0,-55_SX278_SY278_PIkin4,BottomRight,1,22_AA300_SH20_OU01_.jpg"></a></td>
+                                                <td><a href="http://www.barnesandnoble.com/w/guide-to-the-smarty-for-wordpress-plugin-patrick-ingle/1123770360?ean=2940158127281" target="_blank"><img src="http://prodimage.images-bn.com/pimages/2940158127281_p0_v1_s192x300.jpg"</a></td>
+                                            </tr>
+                                        </table>
+                                        <p>Preparing your theme to accept Smarty templates:</p>
+                                        <ul>
+                                        <li>1. Create the four smarty directories (templates,templates_c,config,cache,plugins,trusted) under your theme path</li>
+                                        <li>2. Place your Smarty theme files in the templates path</li>
+                                        <li>3. Ensure that the templates_c path is writable</li>
+                                        <li>4. Create a Wordpress page and enter the following short code: [smarty-display tpl=home.tpl], where home.tpl is your smarty
+                                        template located in the templates path</li>
+                                        <li>5. If you want to pass a single variable with the template, use [smarty-display tpl=home.tpl name=myVariable value="some value"]</li>
+                                        <li>6. If you want to pass multiple variables to the template, use [smarty-array tpl=home.tpl name="my1,my2,my3" value="1,2,'text']</li>
+                                        <li>7. View the page and watch the magic happen!<li>
+                                        <li><strong>That's It!</strong></li>
+                                        </ul>
+                                        <p>The <i>home.tpl</i> contains: <code>Hello from Smarty! passing variable myVariable={$myVariable}</code></p>
+                                        <p>If you wish to use Smarty in your custom worpress php files, then simply invoke the <b>smarty_get_instance()</b> function
+                                        and an instance of the Smarty class will be returned with the directories preset to your current theme.</p>
+                                        <p>For example,<br><code>$mySmarty = smarty_get_instance();<br> $mySmarty->assign('name','value');<br>...</code></p>
+                                        <p>Providing multiple parameters to your Smarty templates,<br><code>[smarty-array tpl="test.tpl" name="my1,my2,my3" value="1,2,'test'"]</code><br>
+                                        <i>Where my1,my2,my3 are the names of your Smarty template variables while value contains the values of these variables to pass to the template, test.tpl.
+                                        (my1=1, my2=2, and my3='test')</i></p>
 				</fieldset>
 
 				<fieldset class='options'>
 					<legend><h2><u>About the Architecture</u></h2></legend>
-<p>This plugin is based on Smarty 3.1.27 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
+<p>This plugin is based on Smarty 3.1.30 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
 <p>This plugin provides a needed and often requested requirement to assist the migration of Smarty templates to Wordpress-compliant
 themes. While the full migration is always preferred, this plugin gives you a fast track to your Smarty migration, as well
 as to embed those flagship Smarty templates/plugins within your new Wordpress pages</p>
 <p>The first release of this plugin exposes the Smarty display and assign_by_ref functions to
 Wordpress as shortcodes.</p>
 				</fieldset>
+                        
+                        <fieldset class="options">
+                            <legend><h2><u>Support</u></h2></legend>
+                            <p>Support is provided from <a href="https://github.com/patrickingle/smarty-for-wordpress/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>You must have a free github.com account to post issue requests.</p>
+                        </fieldset>
 
 				<fieldset class='options'>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
