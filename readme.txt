@@ -145,6 +145,9 @@ Please do not be afraid of asking questions?<br>
 * use the syntax global $wpdb; within the smarty loader file.
 
 == Changelog ==
+= 3.1.30.1 =
+* Fix loading issues with SmartyBC class
+
 = 3.1.30 =
 * Updated to Smarty version 3.1.30, added SmartyBC setting
 
