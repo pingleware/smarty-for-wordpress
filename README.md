@@ -5,8 +5,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: smarty wp-smarty
 Requires at least: 2.8.6
-Tested up to: 4.6
-Stable tag: 4.6
+Tested up to: 4.9.8
+Stable tag: 3.1.32
 
 Smarty for Wordpress permits your Smarty template file to be embedded in a Wordpress post/page.
 
@@ -37,8 +37,6 @@ themes/theme_name/templates<br>
 themes/theme_name/templates_c<br>
 themes/theme_name/cache<br>
 themes/theme_name/config<br>
-themes/theme_name/plugins<br>
-themes/theme_name/trusted<br>
 
 If you wish to turn off Wordpress themes by changing the constant WP_USE_THEMES to false, you also need to
 set the constant SMARTY_PATH in your wp-config file to the path containing your Smarty files. In addition, you
@@ -118,7 +116,7 @@ We make honorable mention to anyone who helps make Smarty for Wordpress a better
 # Contact 
 
 DO NOT ASK FOR SUPPORT FROM www.smarty.net!
-Support is provided at https://github.com/patrickingle/smarty-for-wordpress/issues. You will require a free account on github.com
+Support is provided at https://github.com/presspage2018/smarty-for-wordpress/issues. You will require a free account on github.com
 
 Please contact phkcorp2005@gmail.com or visit the above forum with questions, comments, or requests.
 
@@ -147,6 +145,10 @@ Please do not be afraid of asking questions?<br>
 * use the syntax global $wpdb; within the smarty loader file.
 
 # Changelog 
+= 3.1.32 =
+* Fix "constant WP_USE_THEMES - assumed 'WP_USE_THEMES' (this will throw an Error in a future version of PHP)" error warning
+* Updated to Smarty version 3.1.32
+
 = 3.1.30.1 =
 * Fix loading issues with SmartyBC class
 

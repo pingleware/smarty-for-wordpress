@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Smarty for Wordpress
-Plugin URI: http://www.phkcorp.com?do=wordpress
+Plugin URI: https://wordpress.org/plugins/smarty-for-wordpress/
 Description: Adds the Smarty Template Engine to Wordpress for ease of migration of themes
-Author: PHK Corporation for enablement
-Version: 3.1.30.1
-Author URI: http://www.phkcorp.com/
+Author: PressPage Entertainment Inc.
+Version: 3.1.32
+Author URI: https://presspage.info/
 */
 
 //require_once(dirname(__FILE__)."/libs/Smarty.class.php");
@@ -483,7 +483,7 @@ function displaySmartyManagementPage()
 
 				<fieldset class='options'>
 					<legend><h2><u>About the Architecture</u></h2></legend>
-<p>This plugin is based on Smarty 3.1.30 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
+<p>This plugin is based on Smarty 3.1.32 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
 <p>This plugin provides a needed and often requested requirement to assist the migration of Smarty templates to Wordpress-compliant
 themes. While the full migration is always preferred, this plugin gives you a fast track to your Smarty migration, as well
 as to embed those flagship Smarty templates/plugins within your new Wordpress pages</p>
@@ -493,13 +493,13 @@ Wordpress as shortcodes.</p>
                         
                         <fieldset class="options">
                             <legend><h2><u>Support</u></h2></legend>
-                            <p>Support is provided from <a href="https://github.com/patrickingle/smarty-for-wordpress/issues" target="_blank">github.com</a> (opens in new window)</p>
+                            <p>Support is provided from <a href="https://github.com/presspage2018/smarty-for-wordpress/issues" target="_blank">github.com</a> (opens in new window)</p>
                             <p>You must have a free github.com account to post issue requests.</p>
                         </fieldset>
 
 				<fieldset class='options'>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
-<p><a href="http://www.phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
+<p><a href="https://phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
 of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant <b>seamless</b> themes.</p>
 <p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a></p>
 				</fieldset>
@@ -532,7 +532,12 @@ add_shortcode('smarty-demo','smarty_load_demo');
 
 add_action('admin_menu', 'addSmartyManagementPage');
 
-if (WP_USE_THEMES == false &&
+/**
+ * FIX: constant WP_USE_THEMES - assumed 'WP_USE_THEMES' (this will throw an Error in a future version of PHP)
+ * VERSION: 3.1.32
+ */
+if (defined('WP_USE_THEMES') && 
+    WP_USE_THEMES == false &&
 	!is_admin() &&
 	!in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) )) {
 	add_action('init','smarty_wp_init');
