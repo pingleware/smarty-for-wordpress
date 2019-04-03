@@ -381,21 +381,6 @@ function displaySmartyManagementPage()
 	$s4w_force_compile_checked = (get_option('s4w_force_compile','0') == '1' ? 'checked' : '');
 
 	$s4w_php_handling_selected = get_option('s4w_php_handling',0);
-	switch($s4w_php_handling_selected)
-	{
-		case 1:
-			$s4w_php_handling_selected_1 = 'selected';
-			break;
-		case 2:
-			$s4w_php_handling_selected_2 = 'selected';
-			break;
-		case 3:
-			$s4w_php_handling_selected_3 = 'selected';
-			break;
-		case 4:
-			$s4w_php_handling_selected_4 = 'selected';
-			break;
-	}
 
 	$s4w_use_sub_dirs = (get_option('s4w_use_sub_dirs','0') == '1' ? 'checked' : '');
 
@@ -435,10 +420,10 @@ function displaySmartyManagementPage()
 						</tr>
 						<tr>
 							<td>PHP handling</td><td><select name='php_handling'>
-														<option value='1' <?php echo $s4w_php_handling_selected_1;?>>Pass Thru</option>
-														<option value='2' <?php echo $s4w_php_handling_selected_2;?>>Quote</option>
-														<option value='3' <?php echo $s4w_php_handling_selected_3;?>>Remove</option>
-														<option value='4' <?php echo $s4w_php_handling_selected_4;?>>Allow</option>
+														<option value='1' <?php echo $s4w_php_handling_selected==1?'selected':'';?>>Pass Thru</option>
+														<option value='2' <?php echo $s4w_php_handling_selected==2?'selected':'';?>>Quote</option>
+														<option value='3' <?php echo $s4w_php_handling_selected==3?'selected':'';?>>Remove</option>
+														<option value='4' <?php echo $s4w_php_handling_selected==4?'selected':'';?>>Allow</option>
 													 </select></td>
 						</tr>
 						<tr>
