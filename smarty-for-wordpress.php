@@ -4,11 +4,10 @@ Plugin Name: Smarty for Wordpress
 Plugin URI: https://wordpress.org/plugins/smarty-for-wordpress/
 Description: Adds the Smarty Template Engine to Wordpress for ease of migration of themes
 Author: PressPage Entertainment Inc.
-Version: 3.1.32
+Version: 3.1.35
 Author URI: https://presspage.info/
 */
 
-//require_once(dirname(__FILE__)."/libs/Smarty.class.php");
 require_once(dirname(__FILE__)."/libs/SmartyBC.class.php");
 
 $s4w_smarty = null;
@@ -381,6 +380,11 @@ function displaySmartyManagementPage()
 	$s4w_force_compile_checked = (get_option('s4w_force_compile','0') == '1' ? 'checked' : '');
 
 	$s4w_php_handling_selected = get_option('s4w_php_handling',0);
+	$s4w_php_handling_selected_1 = '';
+	$s4w_php_handling_selected_2 = '';
+	$s4w_php_handling_selected_3 = '';
+	$s4w_php_handling_selected_4 = '';
+
 	switch($s4w_php_handling_selected)
 	{
 		case 1:
@@ -483,7 +487,7 @@ function displaySmartyManagementPage()
 
 				<fieldset class='options'>
 					<legend><h2><u>About the Architecture</u></h2></legend>
-<p>This plugin is based on Smarty 3.1.32 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
+<p>This plugin is based on Smarty 3.1.35 version. When a stable update to Smarty is released, then this plugin will be updated.</p>
 <p>This plugin provides a needed and often requested requirement to assist the migration of Smarty templates to Wordpress-compliant
 themes. While the full migration is always preferred, this plugin gives you a fast track to your Smarty migration, as well
 as to embed those flagship Smarty templates/plugins within your new Wordpress pages</p>
@@ -499,7 +503,7 @@ Wordpress as shortcodes.</p>
 
 				<fieldset class='options'>
 					<legend><h2><u>Wordpress Development</u></h2></legend>
-<p><a href="https://phkcorp.com" target="_blank">PHK Corporation</a> is available for custom Wordpress development which includes development of new plugins, modification
+<p><a href="https://pingleware.work" target="_blank">PressPage Entertainment Inc DBA PINGLEWARE</a> is available for custom Wordpress development which includes development of new plugins, modification
 of existing plugins, migration of HTML/PSD/Smarty themes to wordpress-compliant <b>seamless</b> themes.</p>
 <p>Please email at <a href="mailto:phkcorp2005@gmail.com">phkcorp2005@gmail.com</a></p>
 				</fieldset>

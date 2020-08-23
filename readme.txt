@@ -3,8 +3,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: smarty wp-smarty
 Requires at least: 2.8.6
-Tested up to: 4.9.8
-Stable tag: 3.1.32
+Tested up to: 5.5
+Stable tag: 3.1.35
 
 Smarty for Wordpress permits your Smarty template file to be embedded in a Wordpress post/page.
 
@@ -143,6 +143,9 @@ Please do not be afraid of asking questions?<br>
 * use the syntax global $wpdb; within the smarty loader file.
 
 == Changelog ==
+= 3.1.35 =
+* Updated to Smarty Version 3.1.35
+
 = 3.1.32 =
 * Fix "constant WP_USE_THEMES - assumed 'WP_USE_THEMES' (this will throw an Error in a future version of PHP)" error warning
 * Updated to Smarty version 3.1.32
