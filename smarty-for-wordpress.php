@@ -348,7 +348,7 @@ function smarty_load_demo($atts, $content=null, $code="") {
 function addSmartyManagementPage()
 {
     // Add a new submenu under Options:
-    add_options_page('Smarty for Wordpress', 'Smarty for Wordpress', 8, 'smartyforwordpress', 'displaySmartyManagementPage');
+    add_options_page('Smarty for Wordpress', 'Smarty for Wordpress', 'manage_options', 'smartyforwordpress', 'displaySmartyManagementPage');
 }
 
 // Display the admin page.
